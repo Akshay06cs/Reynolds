@@ -19,7 +19,6 @@ class Users extends CI_Controller
                 redirect('Login/login_form');
             }
 	}
-        asa
         public function onlineUsers()
         {
             //This Code is Use For online User //
