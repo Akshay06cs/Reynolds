@@ -1,0 +1,312 @@
+
+body
+{
+    font-family:Helvetica;
+    margin: 50px;
+}
+
+#ref_date
+{
+    height:6%;
+    width:95%;
+}
+
+
+#insp
+{
+    padding: 50px 30px 50px 80px;
+    border:1px solid black;
+}
+
+textarea
+{
+    resize:none;
+}
+
+#stage
+{
+    width:60%;
+    height:10%;
+}
+
+
+#loi
+{
+    /*margin-left:-280px;
+    margin-top:5px;*/
+}
+
+.desc 
+{
+    margin-right:140px;
+                            
+}
+
+.align
+{
+     /*margin-left:-280px;*/
+}
+
+.rcpl 
+{
+    margin-right:120px;
+}
+
+.drawing_no
+{
+    margin-right:140px  ;
+}
+                        
+.insp_title ,.insp_title2
+{
+    background-color: #eeeeee;
+    border:1;
+    text-align:center;
+}
+
+.qc_footer
+{
+    margin-left:81%;
+    margin-top:10px;
+}
+
+#header
+{
+margin-top:40px;
+margin-right:150px;
+}
+
+    
+                        
+#loi
+{
+    background:#20374F;
+}
+
+#proposed_doi,#stage,#obn_no,#contact_person,#engineer_name,#mat_desc,#remarks
+{
+    background-color: #20374F;
+}
+
+                      
+.panel1
+{
+    background-color:green;
+}
+                        
+#wrapper
+{
+   margin: 0 auto;
+}
+
+#ref_date
+{
+   position:relative;
+}
+
+#ref_no,#ref_date
+{
+     display:inline-block;
+}
+
+#acc1,#acc2,#acc3,#acc4,#acc5,#acc6
+{
+    background-color:#428bca;
+    
+}
+
+#weekly_off
+{
+   position:relative;
+}
+                        
+#proposed_doi,#weekly_off
+{
+    display:inline-block;
+}
+
+#ref_no,#to_addr,#loi,#description,#drawing_no,#rcpl_wo_no,#engineer_name,#item_desc,#mat_desc,#grade,#size,#stage,#select_qty,#proposed_doi,#weekly_off,#contact_person,#phone,#email,#poi,#inspt_by
+{
+    border:none;
+}
+.loid
+{
+    margin-right:110px;
+}
+.panel-heading
+{
+    margin-top:0px;
+    
+}
+/*signature css*/
+#logo { text-align: right; float: right; position: relative; margin-top: 25px; border: 1px solid #fff; max-width: 540px; max-height: 100px; overflow: hidden; }
+#logo:hover, #logo.edit { border: 1px solid #000; margin-top: 0px; max-height: 125px; }
+#logoctr { display: none; }
+#logo:hover #logoctr, #logo.edit #logoctr { display: block; text-align: right; line-height: 25px; background: #eee; padding: 0 5px; }
+#logohelp { text-align: left; display: none; font-style: italic; padding: 10px 5px;}
+#logohelp input { margin-bottom: 5px; }
+.edit #logohelp { display: block; }
+.edit #save-logo, .edit #cancel-logo { display: inline; }
+.edit #image, #save-logo, #cancel-logo, .edit #change-logo, .edit #delete-logo { display: none; }
+
+/* new accordion */
+//body{
+		//font: 62.5% "Trebuchet MS", sans-serif;
+		
+	//}
+.demoHeaders 
+{
+    margin-top: 2em;
+}
+#dialog-link 
+{
+    padding: .4em 1em .4em 20px;
+    text-decoration: none;
+    position: relative;
+}
+	#dialog-link span.ui-icon {
+		margin: 0 5px 0 0;
+		position: absolute;
+		left: .2em;
+		top: 50%;
+		margin-top: -8px;
+	}
+	#icons {
+		margin: 0;
+		padding: 0;
+	}
+	#icons li {
+		margin: 2px;
+		position: relative;
+		padding: 4px 0;
+		cursor: pointer;
+		float: left;
+		list-style: none;
+	}
+	#icons span.ui-icon {
+		float: left;
+		margin: 0 4px;
+	}
+	.fakewindowcontain .ui-widget-overlay {
+		position: absolute;
+	}
+	select {
+		width: 200px;
+	}
+	.distance
+	{
+		
+		margin-left:150px;
+                
+	}
+	.distance1
+	{
+		margin-left:100px;
+		padding-left:50px;
+	}
+	.distance3
+	{
+                
+                overflow:hidden;
+		margin-top:30px;
+		margin-left:200px;
+                
+	}
+	.l1 , .loid, .desc,.drawing_no,.rcpl,.engineer_name,.insp_title,.pdoi,.wo,.insp_title2
+	{
+		//font-family:Helvetica;
+	}
+        #distance2
+        {
+                margin-top:50px;
+		margin-left:200px;
+        }
+        #cp_boundary
+        {
+            margin-top:100px;
+        }
+        .alignhead
+        {
+            margin-left:200px;
+        }
+        #label
+        {
+            margin-left:1px;
+            margin-top:-1px;
+            //spadding:1px 1px 1px 1px;
+        }
+        #label2
+        {
+            margin-left:5px;
+            margin-top:-1px;
+        }
+        #addengg
+        {
+            margin-left:-5px;
+            margin-top:0px; 
+            width:100px;
+            height:20px;
+            
+        }
+        .cred
+        {
+            margin-left:30px;
+            margin-top:1px;
+        }
+        .addr
+        {
+            margin-left:15px;
+        }
+        #left
+        {
+            margin-left:400px;
+        }
+        #left,#right
+        {
+            float:left;
+            
+        }
+        .ref1,.ref1,.rcpl,.to_addr,.customer,.city,.state,.country,.c_phone,.description,.pin
+        {
+            border:none;
+        }
+        
+        .DemoBS2
+        {
+            margin:20px;
+        }
+        .brdr
+        {
+            border-color:#dff0d8;
+            border-bottom-color:#dff0d8;
+        }
+        .topbrdr
+        {
+            border-top-color:#dff0d8;
+				
+        }
+        .pfont
+        {
+            font-weight:bold;
+            color:#ea9191;
+        }
+        .ac_title1,.ac_title2,.ac_title3,.ac_title4,.ac_title5,.ac_title6
+        {
+            font-weight:bold;
+            color:white;
+            font-family:Helvetica;
+        }
+        .big
+        {
+            height: auto;
+        }
+        
+#obn_no,#ref_date
+{
+    border:none;
+}
+
+        
+       
+	
+                        

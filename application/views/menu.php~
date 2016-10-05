@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Reynolds Chemequip Pvt. Ltd.</title>
+    <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/bootstrap.min.css");?>" />
+    <!-- Font Awesome -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/font-awesome.min.css">
+    <!-- Theme style -->
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/AdminLTE.css");?>" />
+            <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+            page. However, you can choose any other skin. Make sure you
+            apply the skin class to the body tag so the changes take effect.
+            -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/skin-blue.css");?>" />
+    <!-- REQUIRED JS SCRIPTS -->
+    <!-- jQuery 2.1.4 -->
+    <script type='text/javascript' src="<?php echo base_url(); ?>assets/js/jQuery-2.1.4.min.js"></script>   
+    <!-- Bootstrap 3.3.5 -->
+    <script type='text/javascript' src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>   
+    <!-- AdminLTE App -->
+    <script type='text/javascript' src="<?php echo base_url(); ?>assets/js/app.min.js"></script>   
+    <!-- Material Design libraries-->
+     <script type='text/javascript' src="<?php echo base_url(); ?>assets/js/material.js"></script> 
+      <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/material.css");?>" />
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <!-- ADMIN PANNEL -->
+            <div class="wrapper">
+            <!-- Main Header -->
+                <header class="main-header">
+                    <!-- Logo -->
+                    <a href="#" class="logo">
+                        <!-- mini logo for sidebar mini 50x50 pixels -->
+                        <span class="logo-mini"><img src="<?php echo base_url();?>assets/images/logo2.png" width="50" height="50"></span>
+                        <!-- logo for regular state and mobile devices -->
+                        <span class="logo-lg"><img src="<?php echo base_url();?>assets/images/logo2.png" width="70" height="50"></span>
+                    </a>
+                    <!-- Header Navbar -->
+                        <nav class="navbar navbar-static-top" role="navigation">
+                    <!-- Sidebar toggle button-->
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                    </a>
+                    <!-- Navbar Right Menu -->
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown messages-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-envelope-o"></i>
+                                    <span class="label label-success">4</span>
+                                </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 4 messages</li>
+                            <li>
+                        </li>
+                    <li class="footer"><a href="#">See All Messages</a></li>
+                </ul>
+                </li>
+                <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell-o"></i> 
+                  <span class="label label-warning" id="count"></span>   <input type="hidden" class="gp_count" value="<?= $count_gp ?>"><input type="hidden" value="<?= $count_po ?>" class="po_count">
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header"> Pending Tasks</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                        <?php 
+                        
+                            foreach($r->result() as $row){
+                                if($level->level == '1' ||$level->level == '2'){
+                                ?>   
+                    <li>
+                           <a href="<?= base_url('index.php/users/print_po/'.$row->order_no); ?>">Approval :<small style='color:grey;'>PO/2015-16/REY/<?= $row->order_no ?> (<?= $row->date ?>)</small></a>
+                    </li>
+                        <?php
+                        }else if($level->level == '4'){ ?>
+                        <li>
+                           <a href="#">Approval :<small style='color:grey;'>PO/2015-16/REY/<?= $row->order_no ?> (<?= $row->date ?>)</small></a>
+                        </li>
+                        
+                            <?php } }?>
+                    </ul>
+                  </li>
+                    <?php
+                        if($level->level == "2" || $level->level == "1" ||  $level->level == "3" )
+                        {
+                    ?>
+                    <li>
+                    <ul class="menu">
+                        <?php 
+                            foreach($request->result() as $row){
+                        ?>   
+                    <li>
+                           <a href="<?= base_url('index.php/users/gate_pass_approval/'.$row->gate_pass_id); ?>">Gate Pass: <small style='color:grey;'><?= $row->name?></small></a>
+                    </li>
+                        <?php
+                        } ?>
+                    </ul>
+                      </li>
+                        <?php }?>
+                    <li class="footer"><a href="#">View all</a></li>
+                </ul>
+              </li>
+            <li class="dropdown user user-menu">
+                <!-- Menu Toggle Button -->
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <!-- The user image in the navbar--> 
+                  <img  src="<?php echo base_url(); ?>assets/images/staff_ pics/<?= $user->emp_image ?>" class="user-image" alt="User Image" />
+                  <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                  <span class="hidden-xs"><?php echo $user->emp_f_name;?> <?php echo $user->emp_m_name;?> <?php echo $user->emp_l_name;?></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- The user image in the menu -->
+                  <li class="user-header">
+                      <img  src="<?php echo base_url(); ?>assets/images/staff_ pics/<?= $user->emp_image ?>" class="img-circle" alt="User Image" />
+                    <p>
+                     <?php echo $user->emp_f_name;?> <?php echo $user->emp_m_name;?> <?php echo $user->emp_l_name;?> <br> <?php if(!empty($user->emp_title)){ ?><?php echo $user->emp_title;?> <?php }?>
+                    </p>
+                  </li>
+                 <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-default btn-flat"  data-toggle="modal" data-target="#myModal">Password Change</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="<?php echo base_url(); ?>index.php/login/logout" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <!-- Control Sidebar Toggle Button -->
+              <li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+          <!-- Sidebar user panel (optional) -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img  src="<?php echo base_url(); ?>assets/images/staff_ pics/<?= $user->emp_image ?>" class="img-circle" alt="User Image" />
+            </div>
+            <div class="pull-left info">
+              <p><?php echo $user->emp_f_name;?> <?php echo $user->emp_m_name;?> <?php echo $user->emp_l_name;?> </p>
+              <!-- Status -->
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div>
+
+          <!-- search form (Optional) -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
+          <!-- /.search form -->
+
+          <!-- Sidebar Menu -->
+          <ul class="sidebar-menu">
+        <!-- Optionally, you can add icons to the links -->
+        <?php
+        if($level->level == "1")
+        {
+        ?>
+            
+            <li class="treeview">
+                    <a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Master</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="<?php echo base_url();?>index.php/users/sup_detail"><i class="fa fa-circle-o"></i>Supplier Master</a></li>
+                        <li><a href="<?php echo base_url();?>index.php/users/cust_detail"><i class="fa fa-circle-o"></i>Customer Master</a></li>
+                        <li><a href="<?php echo base_url();?>index.php/users/part_detail"><i class="fa fa-circle-o"></i>Part Master</a></li>
+                        <li><a href="<?php echo base_url();?>index.php/users/emp_detail"><i class="fa fa-circle-o"></i>Employee Detail</a></li>
+                    </ul>
+                </li>    
+                    
+        <?php
+        } 
+        ?>
+            <li class="treeview">
+              <a href="#"><i class="fa fa-link"></i> <span>Entry</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <?php
+                if($level->level == "1" || $level->level == "2" )
+                {
+                ?>
+                <li><a href="<?php echo base_url();?>index.php/users/obn">Order Booking Note(OBN)</a></li>
+                <li><a href="<?php echo base_url();?>index.php/users/prospects">Prospects</a></li>
+                 <?php
+                }
+                if($level->level == "1" || $level->level == "2" || $level->level == "4" )
+                {
+                ?>
+                <li><a href="<?php echo base_url();?>index.php/users/pur_order">Purchase Order(PO)</a></li>
+                <li><a href="<?php echo base_url();?>index.php/users/grn">Goods Receipt Note(GRN)</a></li>
+                <li><a href="<?php echo base_url();?>index.php/users/pur_inv">Purchase Invoice</a></li>
+                <?php } ?>
+                <li><a href="<?php echo base_url();?>index.php/users/issue_note">Issue Note</a></li>
+                <?php
+                if($level->level == "1" || $level->level == "2")
+                {
+                ?>
+                <li><a href="<?php echo base_url();?>index.php/users/show_gate_pass">Gate Pass</a></li>
+                <?php
+                }else{ 
+                ?>
+                <li><a href="<?php echo base_url();?>index.php/users/new_gate_pass">Gate Pass</a></li>
+                <?php
+                } 
+                ?>
+                <li><a href="<?php echo base_url();?>index.php/users/leave_application">Leave Application</a></li>
+                <?php if($level->level == '1' ||$level->level == '5'){ ?>
+                <li><a href="<?php echo base_url();?>index.php/inspection/">Inspection Call</a></li>
+                <?php }if($level->level == '1' ||$level->level == '3'){ ?>
+                <li><a href="<?php echo base_url();?>index.php/users/extra_work">Extra Work</a></li>
+                <?php } ?>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#"><i class="fa fa-link"></i> <span>Reports</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="<?php echo base_url();?>index.php/users/ledger">Store Ledger</a></li>
+              </ul>
+            </li>
+            <li><a href="#"><i class="fa fa-link"></i> <span>Enquiry Reg.</span></a></li>
+              <li class="treeview">
+              <a href="#"><i class="fa fa-link"></i> <span>Estimation</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="<?php echo base_url();?>index.php/users/pro_detail">RCPL Products</a></li>
+              </ul>
+          </ul><!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Reynolds Chemequip Pvt. Ltd.<br>
+            <small style="font:bold 9px helvetica;"> Plot No. N 14 & N 17, KSSIDC Industrial Estate,<br>Udyambag, Belgaum - 590008<br>
+                    Phone: (0831) 2441141, Fax : (0831) 2440887<br>Purchase@ReynoldsIndia.com</small>
+          </h1>
+            <input type="hidden" value="<?php  echo $level->level; ?>" id="level">
+            </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+          <!-- Your Page Content Here -->
+
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        <!-- To the right -->
+        <strong>Copyright &copy; 2015 <a href="#">Reynolds Chemequip Pvt. Ltd.</a>.</strong> All rights reserved.
+      </footer>
+
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Create the tabs -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+          <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <!-- Home tab content -->
+         
+        </div>
+      </aside><!-- /.control-sidebar -->
+      <!-- Add the sidebar's background. This div must be placed
+           immediately after the control sidebar -->
+      <div class="control-sidebar-bg"></div>
+    </div><!-- ./wrapper -->
+     <!-- MANAGER PANNEL -->
+   
+   
+  </body>
+  <script>
+        //Notification count
+        $(document).ready(function(){
+          var level=$('#level').val();
+          var gp_count=$('.gp_count').val();
+          var po_count=$('.po_count').val();
+          if(level=='1' || level=='2'){
+          var total= parseInt(gp_count) + parseInt(po_count);
+          $('#count').html(total);
+      }else if(level=='3'){
+          $('#count').html(gp_count);
+      }else if(level=='4'){
+          $('#count').html(po_count);
+      }
+        });
+  </script>
+  <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+        <!-- Modal content-->
+         <form name="myForm" action="<?php echo base_url(); ?>index.php/users/change_pwd" method ="post">
+             <?php echo validation_errors(); ?>
+                <div class="modal-content">
+                    <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="id"  id="id" value="<?php echo $user->id;?>">
+                        <label for="inputdefault">Old Password:</label>
+                        <input class="form-control" id="opassword" type="text" required ="reqired" name="opassword">
+                        <label for="inputdefault">New Password:</label>
+                        <input class="form-control" id="npassword" type="password" name="npassword">
+                        <label for="inputdefault">Confirm Password:</label>
+                        <input class="form-control" id="cpassword" type="text" name="cpassword" onBlur = "validate()">
+                        <div id = "errorResponse"></div>
+                       
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" id="change"> Change</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div> 
+    <script>
+        function validate(){
+        var y = document.getElementById("errorResponse");
+        var x=document.forms["myForm"]["npassword"].value;
+        var z=document.forms["myForm"]["cpassword"].value;
+        //Compare the expression
+        if (x!=z){
+        y.innerHTML = "<b style='color:red'>Password Not Matching</b>";
+        }else{
+        y.innerHTML = " ";
+        }
+    }
+    </script>
+</html>

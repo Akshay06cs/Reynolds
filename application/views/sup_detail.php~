@@ -1,0 +1,190 @@
+<html>
+<head>
+        <script type='text/javascript' src="<?php echo base_url(); ?>assets/js/jQuery-2.1.4.min.js"></script>  
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/bootstrap.min.css");?>" />
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/jquery.ptTimeSelect.css");?>" />
+        <script type='text/javascript' src="<?php echo base_url(); ?>assets/js/jquery.ptTimeSelect.js"></script>
+        <!--Autocomplete -->
+        <script type='text/javascript' src="<?php echo base_url(); ?>assets/js/jquery-ui.js"></script>
+        <!-- Dropdown Style For Autocomplete -->
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/jquery-ui.css");?>" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <!--Accordion -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <link rel="stylesheet" href="<?php echo base_url("assets/css/insp.css");?>">
+        <link rel="stylesheet" href="<?php echo base_url("assets/css/gate_pass.css");?>">
+        <!-- Floating Button -->
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/font-awesome.min.css");?>" />
+        <script type='text/javascript' src="<?php echo base_url(); ?>assets/js/materialize.js"></script> 
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/materialize.css");?>" />
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion();
+  });
+  </script>
+</head>
+<body>
+    <h1><?= $r->name?></h1>
+    <div id="accordion">
+  <h1 style="background:#428bca;color:white">Supplier Detail</h1>
+  <div>
+     <form class="form-style-4" >
+                        <label for="field1">
+                            <span align="left">Supplier Name</span>: <?= $r->name?>
+                        </label>
+                        <label for="field1">
+                            <span align="left">Address</span>: <?= $r->address1 ?> <?= $r->address2 ?> 
+                        </label>
+                        <label for="field1">
+                            <span align="left">City</span>: <?= $r->city ?>
+                        </label>
+                        <label for="field2">
+                            <span align="left">State</span>: <?= $r->state ?>
+                        </label>
+                        <label for="field1">
+                            <span align="left">Pin</span>: <?= $r->pin ?>
+                        </label>
+                        <label for="field2">
+                            <span align="left">Country</span>: <?= $r->country ?>
+                        </label>    
+                        <label for="field2">
+                            <span align="left">Tel. No.</span>: <?= $r->ph ?>
+                        </label> 
+                        <label for="field2">
+                            <span align="left">Mobile No.</span>: <?= $r->mob ?>
+                        </label> 
+                        <label for="field2">
+                            <span align="left">Email</span>: <?= $r->email ?>
+                        </label> 
+                        <label for="field2">
+                            <span align="left">Fax</span>: <?= $r->fax ?>
+                        </label> 
+                    </form>    
+                </div>
+    <h3 style="background:#428bca;color:white">Account Deatil</h3>
+  <div>
+    <form class="form-style-4" >
+                        <label for="field1">
+                            <span align="left">PAN No.</span>: <?= $r->pan ?>
+                        </label>
+                        <label for="field1">
+                            <span align="left">Service Tax No.</span>: <?= $r->sertaxnum ?>
+                        </label>
+                        <label for="field1">
+                            <span align="left">Excise No.</span>: <?= $r->exnum ?>
+                        </label>
+                        <label for="field1">
+                            <span align="left">Tin No.</span>: <?= $r->tin ?>
+                        </label>
+                        <label for="field1">
+                            <span align="left">Cin No.</span>: <?= $r->cin_no ?>
+                        </label>
+                        <label for="field1">
+                            <span align="left">Bank Name</span>: <?= $bank->ven_bank ?>
+                        </label>
+                        <label for="field1">
+                            <span align="left">Bank Branch</span>: <?= $bank->bank_branch ?>
+                        </label>
+                        <label for="field1">
+                            <span align="left">Bank City</span>: <?= $bank->bank_city ?>
+                        </label>
+                        <label for="field1">
+                            <span align="left">Account No.</span>: <?= $bank->acc_num ?>
+                        </label>
+                        <label for="field1">
+                            <span align="left">IFSC No.</span>: <?= $bank->ifsc_code ?><br><br>
+                        </label>
+        
+                    </form>    
+  </div>
+    <h3 style="background:#428bca;color:white">Contact Persons Deatil</h3>
+    <div>
+        <form class="form-style-4">
+            <label for="field1">
+                <span align="left">First Name</span>: <input type="text" id="fname" /><input type="text" id="sid" value="<?= $r->id ?>" /> 
+            </label>
+            <label for="field1">
+                <span align="left">Last Name</span>: <input type="text" id="lastname" /> 
+            </label>
+            <label for="field1">
+                <span align="left">Department</span>:<input type="text" id="dept" /> 
+            </label>
+            <label for="field1">
+                <span align="left">Mobile</span>:<input type="text" id="mob"/> 
+            </label>
+            <label for="field1">
+                <span align="left">Email</span>:<input type="text" id="email_id"/> 
+            </label>
+            <label for="field1">
+                 <span align="left"> </span><button type="button" class="btn btn-success" id="add" data-dismiss="modal">Add</button>
+            </label>
+           
+            
+        <table class="table table-border  table-hover table-condensed table-striped">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Department</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        <?php
+        $data  = $this->db->query("select * from supplier_contacts where sid='{$r->id}'");
+        foreach($data->result() as $row){
+        ?>
+        <tr>
+            <td><?= $row->fname; ?></td>
+            <td><?= $row->lastname; ?></td>
+            <td><?= $row->dept; ?></td>
+            <td><?= $row->mob; ?></td>
+            <td><?= $row->supp_mail; ?></td>
+            <td><a href="<?= base_url('index.php/users/delete_cnt/'.$row->id); ?>" class="btn btn-danger glyphicon glyphicon-alert"></a></td>
+        </tr>
+        <?php } ?>
+    </table>
+        </form>
+        
+    </div>
+  
+</div>
+            <div class="fixed-action-btn vertical" style="bottom: 45px; right: 24px;">
+                <a class="btn-floating btn-large red"  href="<?php echo base_url();?>index.php/users">
+                    <i id="pluse_ic" class="glyphicon glyphicon-plus"></i>
+                    <i class="glyphicon glyphicon-home"></i>
+                </a>
+                <ul>
+                    <li><a class="btn-floating yellow darken-1" data-placement="bottom" title="View GatePass List" href="<?php echo base_url();?>index.php/users/emp_detail"><i class="glyphicon glyphicon-search"></i></a></li>
+                    <li><a class="btn-floating grey"  data-placement="bottom" title="Go Back!"  href="javascript:window.history.go(-1);"><i class="glyphicon glyphicon-arrow-left"></i></a></li>    
+                </ul>
+            </div>
+            <script>
+                $('.fixed-action-btn').hover(function(){
+                $('#pluse_ic').toggle();
+                });
+                
+                </script>
+<script>
+$("#add").click(function(){
+       
+        var sid = $('#sid').val();
+        var fname = $('#fname').val();
+        var lastname = $('#lastname').val();
+        var dept = $('#dept').val();
+        var mob = $('#mob').val();
+        var email = $('#email_id').val();
+
+        $.ajax({
+            url: "<?php echo base_url(); ?>index.php/Users/add_supp_contcts",
+            type: 'POST',
+            data: { 'sid': sid, 'fname': fname, 'lastname': lastname, 'dept': dept, 'mob': mob, 'email':email },
+            dataType:"json",
+            success: function(data) {
+                window.location.href = "<?php echo base_url(); ?>index.php/Users/pur_order"; 
+            },
+        });
+    });
+</script>
+</body>
+</html>

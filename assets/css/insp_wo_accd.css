@@ -1,0 +1,255 @@
+
+body
+{
+    font-family:arial;
+    margin: 50px;
+}
+
+#insp
+{
+    padding: 50px 30px 50px 80px;
+    
+}
+
+textarea
+{
+    resize:none;
+}
+
+
+
+#loi
+{
+    /*margin-left:-280px;
+    margin-top:5px;*/
+}
+
+.desc 
+{
+    margin-right:100px;
+                            
+}
+
+.align
+{
+     /*margin-left:-280px;*/
+}
+
+.rcpl 
+{
+    margin-right:120px;
+}
+
+.drawing_no
+{
+    margin-right:140px  ;
+}
+                        
+.insp_title ,.insp_title2
+{
+    background-color: #eeeeee;
+    border:1;
+    text-align:center;
+}
+
+.qc_footer
+{
+    margin-left:900px;
+    margin-top:10px;
+}
+
+#header
+{
+margin-top:40px;
+margin-right:150px;
+}
+                        
+#loi
+{
+    background:#F5F5DC;
+}
+
+#ref_date,#proposed_doi,#to_addr,#drawing_no,#description,#item_desc,#size,#stage,#inspt_by
+{
+    border:none;
+}
+                        
+.panel1
+{
+    background-color:green;
+}
+                        
+.wrapper
+{
+    min-height: 100%;
+    margin: 0 auto -4em;
+}
+
+#ref_date
+{
+   position:relative;
+}
+
+#ref_no,#ref_date
+{
+     display:inline-block;
+}
+
+#acc1,#acc2,#acc3,#acc4,#acc5,#acc6
+{
+    background-color:#428bca;
+    
+}
+
+#weekly_off
+{
+   position:relative;
+}
+                        
+#proposed_doi,#weekly_off
+{
+    display:inline-block;
+}
+
+#ref_no,#ref_no,#to_addr,#loi,#description,#drawing_no,#rcpl_wo_no,#engineer_name,#item_desc,#mat_desc,#grade,#size,#stage,#select_qty,#proposed_doi,#weekly_off,#contact_person,#phone,#email,#poi,#inspt_by
+{
+    border:none;
+}
+.loid
+{
+    margin-right:110px;
+}
+.panel-heading
+{
+    margin-top:0px;
+    
+}
+/*signature css*/
+#logo { text-align: right; float: right; position: relative; margin-top: 25px; border: 1px solid #fff; max-width: 540px; max-height: 100px; overflow: hidden; }
+#logo:hover, #logo.edit { border: 1px solid #000; margin-top: 0px; max-height: 125px; }
+#logoctr { display: none; }
+#logo:hover #logoctr, #logo.edit #logoctr { display: block; text-align: right; line-height: 25px; background: #eee; padding: 0 5px; }
+#logohelp { text-align: left; display: none; font-style: italic; padding: 10px 5px;}
+#logohelp input { margin-bottom: 5px; }
+.edit #logohelp { display: block; }
+.edit #save-logo, .edit #cancel-logo { display: inline; }
+.edit #image, #save-logo, #cancel-logo, .edit #change-logo, .edit #delete-logo { display: none; }
+
+/* new accordion */
+//body{
+		//font: 62.5% "Trebuchet MS", sans-serif;
+		
+	//}
+	.demoHeaders {
+		margin-top: 2em;
+	}
+	#dialog-link {
+		padding: .4em 1em .4em 20px;
+		text-decoration: none;
+		position: relative;
+	}
+	#dialog-link span.ui-icon {
+		margin: 0 5px 0 0;
+		position: absolute;
+		left: .2em;
+		top: 50%;
+		margin-top: -8px;
+	}
+	#icons {
+		margin: 0;
+		padding: 0;
+	}
+	#icons li {
+		margin: 2px;
+		position: relative;
+		padding: 4px 0;
+		cursor: pointer;
+		float: left;
+		list-style: none;
+	}
+	#icons span.ui-icon {
+		float: left;
+		margin: 0 4px;
+	}
+	.fakewindowcontain .ui-widget-overlay {
+		position: absolute;
+	}
+	select {
+		width: 200px;
+	}
+	.distance
+	{
+		margin-top:40px;
+		margin-left:150px;
+                display: block;
+	}
+	.distance1
+	{
+		margin-left:100px;
+		padding:50px 50px 50px 50px;
+	}
+	.distance3
+	{
+                
+                overflow:hidden;
+		margin-top:30px;
+		margin-left:200px;
+                
+	}
+	.l1 , .loid, .desc,.drawing_no,.rcpl,.engineer_name,.insp_title,.pdoi,.wo,.insp_title2
+	{
+		font-family:Helvetica;
+	}
+        #distance2
+        {
+                margin-top:50px;
+		margin-left:200px;
+        }
+        #cp_boundary
+        {
+            margin-top:100px;
+        }
+        .alignhead
+        {
+            margin-left:200px;
+        }
+        #label
+        {
+            margin-left:1px;
+            margin-top:-1px;
+            //spadding:1px 1px 1px 1px;
+        }
+        #label2
+        {
+            margin-left:5px;
+            margin-top:-1px;
+        }
+        #addengg
+        {
+            margin-left:-5px;
+            margin-top:0px; 
+            width:100px;
+            height:20px;
+            
+        }
+        .cred
+        {
+            margin-left:35px;
+            margin-top:1px;
+        }
+        .addr
+        {
+            margin-left:15px;
+        }
+        
+        .table1
+        {
+             
+        }
+        #customer,#to_addr,#city,#state,#country,#pin,#c_phone
+        {
+            border:none;
+        }
+       
+	
+                        

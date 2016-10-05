@@ -1,0 +1,129 @@
+<html>
+<head>
+        <script type='text/javascript' src="<?php echo base_url(); ?>assets/js/jQuery-2.1.4.min.js"></script>  
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/bootstrap.min.css");?>" />
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/jquery.ptTimeSelect.css");?>" />
+        <script type='text/javascript' src="<?php echo base_url(); ?>assets/js/jquery.ptTimeSelect.js"></script>
+        <!--Autocomplete -->
+        <script type='text/javascript' src="<?php echo base_url(); ?>assets/js/jquery-ui.js"></script>
+	<!-- Jquery Plugin For Ubuntu-->
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>        
+	<!-- Dropdown Style For Autocomplete -->
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/jquery-ui.css");?>" />
+         <!--Accordion -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <link rel="stylesheet" href="<?php echo base_url("assets/css/insp.css");?>">
+        <link rel="stylesheet" href="<?php echo base_url("assets/css/gate_pass.css");?>">
+        <!-- Floating Button -->
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/font-awesome.min.css");?>" />
+        <script type='text/javascript' src="<?php echo base_url(); ?>assets/js/materialize.js"></script> 
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/materialize.css");?>" />
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion();
+  });
+  </script>
+</head>
+<body>
+    <h1>New Supplier/Customer</h1>
+    <div id="accordion">
+  <h1 style="background:#428bca;color:white">Supplier/Customer Detail</h1>
+  <div>
+     <form class="form-style-4" action="<?= base_url('index.php/users/insert_user_db') ?>" method ="post" >
+                        <label for="field1">
+                            <span align="left">Supplier/Customer</span> <input type="radio" value="SUPP" name="code" /> Supplier <input type="radio" name="code" value="CUST" /> Customer <input type="radio" name="code" value="CUSU" /> Both
+                        </label>
+                        <label for="field1">
+                            <span align="left">Name</span>: <input type="text" name="sname" required="required"/>
+                        </label>
+                        <label for="field1">
+                            <span align="left">Address I</span>: <input type="text" name="address1" required="required"/>  
+                        </label>
+                        <label for="field1">
+                            <span align="left">Address II</span>: <input type="text" name="address2" required="required"/> 
+                        </label>
+                        <label for="field2">
+                            <span align="left">City</span>: <input type="text" name="city" required="required"/> 
+                        </label>
+                        <label for="field2">
+                            <span align="left">State</span>: <input type="text" name="state"  required="required"/> 
+                        </label>
+                        <label for="field1">
+                            <span align="left">Pin</span>: <input type="text" name="pin"  required="required"/> 
+                        </label>
+                        <label for="field2">
+                            <span align="left">Country</span>: <input type="text" name="country"  required="required"/> 
+                        </label>    
+                        <label for="field2">
+                            <span align="left">Tel. No.</span>: <input type="text" name="ph"  /> 
+                        </label> 
+                        <label for="field2">
+                            <span align="left">Mobile No.</span>: <input type="text" name="mob"  /> 
+                        </label> 
+                        <label for="field2">
+                            <span align="left">Email</span>: <input type="text" name="email" /> 
+                        </label> 
+                        <label for="field2">
+                            <span align="left">Fax</span>: <input type="text" name="fax" /> 
+                        </label> 
+         
+                </div>
+    <h3 style="background:#428bca;color:white">Account Deatil</h3>
+  <div>
+  <div class="form-style-4">
+                        <label for="field1">
+                            <span align="left">PAN No.</span>: <input type="text" name="pan" /> 
+                        </label>
+                        <label for="field1">
+                            <span align="left">Service Tax No.</span>: <input type="text" name="sertaxnum"  /> 
+                        </label>
+                        <label for="field1">
+                            <span align="left">Excise No.</span>:<input type="text" name="exnum"  /> 
+                        </label>
+                        <label for="field1">
+                            <span align="left">Tin No.</span>:<input type="text" name="tin"  /> 
+                        </label>
+                        <label for="field1">
+                            <span align="left">Cin No.</span>: <input type="text" name="cin_no"  /> 
+                        </label>
+                        <label for="field1">
+                            <span align="left">Bank Name</span>: <input type="text" name="ven_bank"  /> 
+                        </label>
+                        <label for="field1">
+                            <span align="left">Bank Branch</span>: <input type="text" name="bank_branch"  /> 
+                        </label>
+                        <label for="field1">
+                            <span align="left">Bank City</span>: <input type="text" name="bank_city"  /> 
+                        </label>
+                        <label for="field1">
+                            <span align="left">Account No.</span>: <input type="text" name="acc_num"  /> 
+                        </label>
+                        <label for="field1">
+                            <span align="left">IFSC No.</span>: <input type="text" name="ifsc_code" /> <br><br>
+                        </label>
+        
+        </div>
+  </div>
+  
+</div>
+            <div class="fixed-action-btn vertical" style="bottom: 45px; right: 24px;">
+                <a class="btn-floating btn-large red"  href="<?php echo base_url();?>index.php/users">
+                    <i id="pluse_ic" class="glyphicon glyphicon-plus"></i>
+                    <i class="glyphicon glyphicon-home"></i>
+                </a>
+                <ul>
+                    <li><a class="btn-floating yellow darken-1" data-placement="bottom" title="View Supplier List" href="<?php echo base_url();?>index.php/users/sup_detail"><i class="glyphicon glyphicon-search"></i></a></li>
+                    <li><button type="submit" name = "submit" class="btn-floating blue" data-placement="bottom" title="Save"><span class="glyphicon glyphicon-save"></span></button></li>
+                    <li><a class="btn-floating grey"  data-placement="bottom" title="Go Back!"  href="javascript:window.history.go(-1);"><i class="glyphicon glyphicon-arrow-left"></i></a></li>    
+                </ul>
+            </div>
+               </form>    
+            <script>
+                $('.fixed-action-btn').hover(function(){
+                $('#pluse_ic').toggle();
+                });
+                </script>
+
+</body>
+</html>

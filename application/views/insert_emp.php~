@@ -1,0 +1,241 @@
+<html>
+<head>
+         <script type='text/javascript' src="<?php echo base_url(); ?>assets/js/jQuery-2.1.4.min.js"></script>  
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/bootstrap.min.css");?>" />
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/jquery.ptTimeSelect.css");?>" />
+        <script type='text/javascript' src="<?php echo base_url(); ?>assets/js/jquery.ptTimeSelect.js"></script>
+        <!--Autocomplete -->
+        <script type='text/javascript' src="<?php echo base_url(); ?>assets/js/jquery-ui.js"></script>
+	<!-- Jquery Plugin For Ubuntu-->
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>        
+	<!-- Dropdown Style For Autocomplete -->
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/jquery-ui.css");?>" />
+         <!--Accordion -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <link rel="stylesheet" href="<?php echo base_url("assets/css/insp.css");?>">
+        <link rel="stylesheet" href="<?php echo base_url("assets/css/gate_pass.css");?>">
+        <!-- Floating Button -->
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/font-awesome.min.css");?>" />
+        <script type='text/javascript' src="<?php echo base_url(); ?>assets/js/materialize.js"></script> 
+        <link rel='stylesheet' type='text/css' href="<?php echo base_url("assets/css/materialize.css");?>" />
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion();
+  });
+  </script>
+</head>
+<body>
+    <div class="container">
+                <div class="row">
+                     <div class="col-md-2">
+                   <?php echo form_open_multipart('users/insert_emp_db');?>
+                    <img src="<?php echo base_url(); ?>assets/images/staff_ pics/" style="border-radius:9px" alt="Employee Photo"  width="100 " height="130" >
+                      <input type="file" name="userfile" class="btn-default form-control"/><br>
+              
+         
+         
+                </div>
+               <div class="col-md-6">
+                  
+                </div>
+                 </div>
+            </div>
+    <div id="accordion">
+  <h1 style="background:#428bca;color:white">Personal Detail</h1>
+  <div>
+     <div class="form-style-4" >
+                        <label for="field1">
+                            <span align="left">Emp.Id</span>: <input type="text" name="emp_id" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">First Name</span>: <input type="text" name="emp_f_name" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Middle Name</span>: <input type="text" name="emp_m_name" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Last Name</span>: <input type="text" name="emp_l_name" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Driving Licence No.</span>: <input type="text" name="emp_dl_no" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Driving Licence Expiry Date </span>: <input type="text" name="emp_dl_exp_date" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Gender</span>: <input type="text" name="emp_gender" />
+                        </label>
+                        <label for="field2">
+                            <span align="left">Marital Status</span>: <input type="text" name="emp_marital_status" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Nationality</span>: <input type="text" name="emp_nationality" />
+                        </label>
+                        <label for="field2">
+                            <span align="left">Date Of Birth</span>:<input type="text" name="emp_dob" />
+                        </label>    
+                    </div>
+        </div>
+  <h3 style="background:#428bca;color:white">Contact Detail</h3>
+  <div>               
+        <div class="form-style-4" >
+                        <label for="field1">
+                            <span align="left">Address1</span>: <input type="text" name="emp_address1" /> 
+                        </label>
+                        <label for="field1">
+                            <span align="left">Address2</span>: <input type="text" name="emp_address2" /> 
+                        </label>
+                        <label for="field1">
+                            <span align="left">City</span>: <input type="text" name="emp_city" /> 
+                        </label>
+                        <label for="field1">
+                            <span align="left">State</span>: <input type="text" name="emp_state" /> 
+                        </label>
+                        <label for="field1">
+                            <span align="left">Postal Code</span>: <input type="text" name="emp_postal_code" /> 
+                        </label>
+                        <label for="field1">
+                            <span align="left">Country</span>:<input type="text" name="emp_country" /> 
+                        </label>
+                        <label for="field2">
+                            <span align="left">Home Telephone</span>: <input type="text" name="emp_home_tel" /> 
+                        </label>
+                        <label for="field1">
+                            <span align="left">Work Telephone</span>: <input type="text" name="emp_work_tel" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Mobile</span>: <input type="text" name="emp_mob" />
+                        </label>
+                        <label for="field2">
+                            <span align="left">Other Phone</span>: <input type="text" name="emp_other_phone" />
+                        </label>    
+                        <label for="field1">
+                            <span align="left">Work Email</span>: <input type="text" name="emp_work_email" />
+                        </label>
+                        <label for="field2">
+                            <span align="left">Other Email</span>: <input type="text" name="emp_other_email" />
+                        </label>    
+                    </div>    
+                        
+            </div>
+
+  <h3 style="background:#428bca;color:white">Job Detail</h3>
+  <div>
+    <div class="form-style-4" >
+                        <label for="field1">
+                            <span align="left">Designation</span>: <input type="text" name="emp_title" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Employment Status</span>: <input type="text" name="emp_employment_status" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Job Category</span>: <input type="text" name="emp_job_category" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Department</span>: <input type="text" name="emp_dept" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Employee Joined Date</span>: <input type="text" name="emp_joined_date" />
+                        </label>
+                        <label for="field2">
+                            <span align="left">Job Location</span>: <input type="text" name="emp_location" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Termination Date</span>: <input type="text" name="emp_termination_date" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Assigned Supervisor</span>: <input type="text" name="emp_assigned_super" />
+                        </label>
+                        <label for="field2">
+                            <span align="left">Assigned Subordinate</span><br>
+                        </label> 
+                        <label for="field2">
+                            <span align="left">1.</span>: <input type="text" name="emp_assigned_sub1" />
+                        </label>  
+                        <label for="field2">
+                            <span align="left">2.</span>: <input type="text" name="emp_assigned_sub2" />
+                        </label>  
+                        <label for="field2">
+                            <span align="left">3.</span>: <input type="text" name="emp_assigned_sub3" />
+                        </label>  
+                        <label for="field2">
+                            <span align="left">4.</span>: <input type="text" name="emp_assigned_sub4" />
+                        </label>  
+                        <label for="field2">
+                            <span align="left">5.</span>: <input type="text" name="emp_assigned_sub5" />
+                        </label>  
+                    </div> 
+  </div>
+ 
+  <h3 style="background:#428bca;color:white">Emergency Contact Deatil</h3>
+  <div>
+    <div class="form-style-4" >
+                        <label for="field1">
+                            <span align="left">Contact Person</span>: <input type="text" name="emp_emer_name" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Relationship</span>: <input type="text" name="emp_emer_relationship" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Home Telephone</span>: <input type="text" name="emp_emer_home_tel" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Work Telephone</span>: <input type="text" name="emp_emer_work_tel" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Work email</span>: <input type="text" name="emp_emer_work_email" />
+                        </label>
+                        <label for="field2">
+                            <span align="left">Other Email</span>: <input type="text" name="emp_other_work_email" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Mobile</span>: <input type="text" name="emp_emer_mob" />
+                        </label>
+                    </div>    
+  </div>
+  <h3 style="background:#428bca;color:white">Bank Deatil</h3>
+  <div>
+    <div class="form-style-4" >
+                        <label for="field1">
+                            <span align="left">Bank Name</span>: <input type="text" name="emp_bank" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Bank Account Name</span>: <input type="text" name="emp_bank_account_name" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Account Type</span>: <input type="text" name="emp_bank_account_type" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Bank Account No.</span>: <input type="text" name="emp_bank_account_no" />
+                        </label>
+                        <label for="field1">
+                            <span align="left">Bank Account IFSC.</span>: <input type="text" name="emp_bank_account_ifsc" /><br><br><br><br><br><br><br><br><br>
+                        </label>
+                        
+                    </div>    
+  </div>
+  
+</div>
+     <div class="fixed-action-btn vertical" style="bottom: 45px; right: 24px;">
+                <a class="btn-floating btn-large red"  href="<?php echo base_url();?>index.php/users">
+                    <i id="pluse_ic" class="glyphicon glyphicon-plus"></i>
+                    <i class="glyphicon glyphicon-home"></i>
+                </a>
+                <ul>
+                    <li><a class="btn-floating yellow darken-1" data-placement="bottom" title="View GatePass List" href="<?php echo base_url();?>index.php/users/emp_detail"><i class="glyphicon glyphicon-search"></i></a></li>
+                    <li><a class="btn-floating grey"  data-placement="bottom" title="Go Back!"  href="javascript:window.history.go(-1);"><i class="glyphicon glyphicon-arrow-left"></i></a></li>    
+                    <li><button type="submit" value="Save" name="upload" class="btn btn-sm btn-success">   <span class="glyphicon glyphicon-save"></span></button></li>
+                    
+                </ul>
+                           
+        </div>
+    </form>
+            <script>
+                $('.fixed-action-btn').hover(function(){
+                $('#pluse_ic').toggle();
+                });
+                </script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+/*From date and To date*/
+.date_range{
+   width:90%;
+}
+.from
+{
+    margin-left: 25%;
+}
+    
+.to_date,.from_date
+{
+    border:none;
+    background-color: #F5F5DC;
+}
+
+/* Table contents display*/
+.tbl_head,.tbl
+{
+    background-color:#F5F5F5;
+    
+}
+.tbl_si,.tbl_cus,.tbl_quote,.tbl_val,.tbl_con,.tbl_act
+{
+    text-align: center;
+}
+
+#tbl_detail
+{
+    
+    left:10%;
+    width:90%;
+    height:50%;
+    top:100%;
+    position:absolute;
+    text-align:center;
+     
+}
+#message
+{
+    left:44%;
+    position:absolute;
+        
+}
+a:link{
+    text-decoration: none;
+}
+
+#total_val
+{
+    font-size:190%;
+}
+
+.date
+{
+    width:10%;
+}

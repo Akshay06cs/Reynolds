@@ -1,0 +1,111 @@
+*{
+	padding:0px;
+	margin:0px;
+}
+body{
+	width : 100%;
+	background:#fff url(../images/27015.jpg);
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	
+}
+#container{
+	max-width:1200px;
+	margin:5px 0px;
+	-webkit-box-orient:vertical;
+	-webkit-box-flex:1;
+	border:2px solid yellow;
+	-webkit-box-pack:center;
+	border:2px solid green;
+	margin:10px 10px;
+	}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+td,
+th {
+  padding: 10px;
+}
+table {
+  background-color: transparent;
+}
+caption {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #777;
+  text-align: left;
+}
+th {
+  text-align: left;
+}
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+.table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+}
+
+.table > tbody + tbody {
+  border-top: 2px solid #ddd;
+}
+.table .table {
+  background-color: #fff;
+}
+
+.table-bordered {
+  border: 1px solid #ddd;
+}
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  border: 1px solid #ddd;
+}
+.table-hover > tbody > tr:hover {
+  background-color: gray;
+}
+#header{
+	background:#fff url(../images/akki.jpg);
+	border:2px solid green;
+	font :bold 50px tahoma;
+	color:white;
+	padding:70px;
+
+}
+a{
+	color:yellow;
+}
+th{
+	color:white;
+	font-family:tahoma;
+}
+td{
+	color:pink;
+	font-family:tahoma;
+}
+#sub{
+	padding:8px;
+	font :bold 12px tahoma;
+	-webkit-border-radius:5px;
+}
+input,textarea{
+	font :bold 12px tahoma;
+	
+}
