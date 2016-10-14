@@ -96,22 +96,34 @@
                         <label for="field1">
                             <span align="left">Employee Name</span><input type="text" id="e_name" value="<?= $approval_detail->name ?>" name="field1" required="true" />
                         </label>
-                        <?php  $out_time  = $this->db->query("SELECT * FROM tbl_gatepass WHERE emp_id LIKE '{$approval_detail->emp_id}%' AND gp_date='{$approval_detail->date}' AND status LIKE '%O%' ORDER BY `id` ASC LIMIT 1" )->row(); 
+                        <?php if($approval_detail->today_gate_count=='1'){
+                            $count_out ='0';
+                            $count_in='1';
+                        }else if($approval_detail->today_gate_count=='2'){
+                            $count_out ='2';
+                            $count_in='3';
+                        }else if($approval_detail->today_gate_count=='3'){
+                            $count_out ='4';
+                            $count_in='5';
+                        }else if($approval_detail->today_gate_count=='4'){
+                            $count_out ='6';
+                            $count_in='7';
+                        }else if($approval_detail->today_gate_count=='2'){
+                            $count_out ='8';
+                            $count_in='9';
+                        } ?>
+                        <?php  $out_time  = $this->db->query("SELECT * FROM tbl_gatepass WHERE emp_id LIKE '{$approval_detail->emp_id}%' AND gp_date='{$approval_detail->date}' AND status LIKE '%O%' ORDER BY `id` LIMIT $count_out,1" )->row(); 
                         if(!empty($out_time)){
                         ?>
                         <label for="field1">
-                             <span align="left">Time Out</span><input type="text" id="time_out" name="field1" required="true" value="<?php  echo $out_time->gp_time ?>" />
+                             <span align="left">Time Out</span><input type="text" id="time_out" name="field1" required="true" value="<?php  echo date("g:i A", strtotime($out_time->gp_time)) ?>" />
                         </label>
-                        <?php  
-                        }
-                        //it Will check Second time person Entered //
-                        $in_time_count = $this->db->query("SELECT COUNT(*) as total FROM tbl_gatepass WHERE emp_id LIKE '{$approval_detail->emp_id}%' AND gp_date='{$approval_detail->date}' AND status LIKE '%O%'")->row(); 
-                        if($in_time_count->total >=2){
-                        $in_time = $this->db->query("SELECT * FROM tbl_gatepass WHERE emp_id LIKE '{$approval_detail->emp_id}%' AND gp_date='{$approval_detail->date}' AND status LIKE '%O%' ORDER BY `id` DESC LIMIT 1")->row(); ?>
+                        <?php } $in_time  = $this->db->query("SELECT * FROM tbl_gatepass WHERE emp_id LIKE '{$approval_detail->emp_id}%' AND gp_date='{$approval_detail->date}' AND status LIKE '%O%' ORDER BY `id` LIMIT $count_in,1" )->row();
+                        if(!empty($in_time)){ ?>
                         <label for="field1">
-                            <span align="left">Time In</span><input type="text" name="field1" value="<?php  echo $in_time->gp_time ?>" />
+                            <span align="left">Time In</span><input type="text" name="field1" value="<?php  echo date("g:i A", strtotime($in_time->gp_time)) ?>" />
                         </label>
-                        <?php } ?>
+                         <?php } ?>
                         <label for="field1">
                             <span align="left">Name Of Security In-charge</span><input type="text" name="field1" required="true" />
                         </label>

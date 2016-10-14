@@ -215,9 +215,9 @@ class User_model extends CI_Model
         $query = $this->db->query("SELECT emp_id, CONCAT(emp_f_name,' ',emp_m_name,' ',emp_l_name) As name FROM employee_detail WHERE (CONCAT(emp_f_name,' ',emp_m_name,' ',emp_l_name) LIKE '%" . $term . "%') limit 5");
         return $query->result_array();
     }
-    function get_employee_detail($id,$month)
+    function get_employee_detail($id,$month,$today)
     {
-         $query = $this->db->query("SELECT (SELECT emp_mob FROM employee_detail WHERE emp_id=$id) as mob, (SELECT COUNT(*) FROM gate_pass WHERE emp_id=$id AND month=$month) as c_gate,  (SELECT emp_id FROM employee_detail WHERE emp_id=$id) as empid, (SELECT total_leave_in_year FROM employee_detail WHERE emp_id=$id) as leave_cnt");
+         $query = $this->db->query("SELECT (SELECT emp_mob FROM employee_detail WHERE emp_id=$id) as mob, (SELECT COUNT(*) FROM gate_pass WHERE emp_id=$id AND month=$month) as c_gate,  (SELECT emp_id FROM employee_detail WHERE emp_id=$id) as empid, (SELECT total_leave_in_year FROM employee_detail WHERE emp_id=$id) as leave_cnt, ((SELECT COUNT(*) FROM gate_pass WHERE emp_id='$id' AND date='$today')+1) as today_gatepass");
     return $query->row();
     }
     
@@ -368,27 +368,21 @@ class User_model extends CI_Model
     {
         return $this->db->query("SELECT `balance` FROM `loan_detail` WHERE `id`=$id AND ld_id={$max_id->max_id}")->row();
     }
-    
-    
     public function get_adv_prev_details($id)
     {
         return $this->db->query("SELECT `ad_adv_date`,`ad_balance` FROM `adv_pmt_details` WHERE `ad_emp_id`='$id' ORDER BY `ad_id` DESC LIMIT 1")->row();
         
     }
-    
     public function get_attnd($id)
     {
         return $this->db->query("SELECT `att_attend` FROM `att_dummy` WHERE `att_emp_id`=$id")->row();
     }
-    
     public function get_adv_pmt_details($id)
     {
         return $this->db->query("SELECT * FROM `adv_pmt_details` WHERE `ad_emp_id`='$id'")->result_array();
-                
     }
     function quip_cate($name)
     {
-     
         $this->db->order_by('id',"ASC");
         $this->db->like('equip_cat',$name);
         return $this->db->get('rcpl_products_category')->result_array();

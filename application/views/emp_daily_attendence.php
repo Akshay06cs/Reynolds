@@ -52,22 +52,21 @@
             $newDate = date("Y-m-d", strtotime($datee));
             echo $datee;
                             $data  = $this->db->query("SELECT tbl_gatepass.emp_id, employee_detail.emp_f_name, employee_detail.emp_m_name, employee_detail.emp_l_name,
-MAX(CASE WHEN tbl_gatepass.gp_time < '12:00:00' AND tbl_gatepass.status LIKE '%I%' THEN tbl_gatepass.gp_time ELSE '-' END ) morning,
-MAX(CASE WHEN tbl_gatepass.status LIKE '%I%' AND tbl_gatepass.gp_time BETWEEN '12:55:00' AND '13:10:00'  THEN tbl_gatepass.gp_time ELSE '-' END) lunch,
-MAX(CASE WHEN tbl_gatepass.status LIKE '%I%' AND tbl_gatepass.gp_time BETWEEN '13:11:00' AND '16:40:00'  THEN tbl_gatepass.gp_time ELSE '-' END) lunch2,
-MAX(CASE WHEN tbl_gatepass.status LIKE '%I%' AND tbl_gatepass.gp_time > '16:25:00' THEN tbl_gatepass.gp_time ELSE '-' END) evening
-FROM tbl_gatepass INNER JOIN employee_detail ON tbl_gatepass.emp_id = employee_detail.emp_id WHERE tbl_gatepass.gp_date ='$newDate' AND employee_detail.job_category ='STAF'  GROUP BY tbl_gatepass.emp_id");
-       }else{
-        
-         $newDate = date('Y-m-d');
-         echo date("d-m-Y", strtotime($newDate));;
+                                                        MAX(CASE WHEN tbl_gatepass.gp_time < '12:00:00' AND tbl_gatepass.status LIKE '%I%' THEN tbl_gatepass.gp_time ELSE '-' END ) morning,
+                                                        MAX(CASE WHEN tbl_gatepass.status LIKE '%I%' AND tbl_gatepass.gp_time BETWEEN '12:55:00' AND '13:10:00'  THEN tbl_gatepass.gp_time ELSE '-' END) lunch,
+                                                        MAX(CASE WHEN tbl_gatepass.status LIKE '%I%' AND tbl_gatepass.gp_time BETWEEN '13:11:00' AND '16:40:00'  THEN tbl_gatepass.gp_time ELSE '-' END) lunch2,
+                                                        MAX(CASE WHEN tbl_gatepass.status LIKE '%I%' AND tbl_gatepass.gp_time > '16:25:00' THEN tbl_gatepass.gp_time ELSE '-' END) evening
+                                                        FROM tbl_gatepass INNER JOIN employee_detail ON tbl_gatepass.emp_id = employee_detail.emp_id WHERE tbl_gatepass.gp_date ='$newDate' AND employee_detail.job_category ='STAF'  GROUP BY tbl_gatepass.emp_id");
+                                                    }else{
+                                                        $newDate = date('Y-m-d');
+                                                        echo date("d-m-Y", strtotime($newDate));;
                             $data  = $this->db->query("SELECT tbl_gatepass.emp_id, employee_detail.emp_f_name, employee_detail.emp_m_name, employee_detail.emp_l_name,
-MAX(CASE WHEN tbl_gatepass.gp_time < '12:00:00' AND tbl_gatepass.status LIKE '%I%' THEN tbl_gatepass.gp_time ELSE '-' END ) morning,
-MAX(CASE WHEN tbl_gatepass.status LIKE '%I%' AND tbl_gatepass.gp_time BETWEEN '12:55:00' AND '13:10:00'  THEN tbl_gatepass.gp_time ELSE '-' END) lunch,
-MAX(CASE WHEN tbl_gatepass.status LIKE '%I%' AND tbl_gatepass.gp_time BETWEEN '13:11:00' AND '16:40:00'  THEN tbl_gatepass.gp_time ELSE '-' END) lunch2,
-MAX(CASE WHEN tbl_gatepass.status LIKE '%I%' AND tbl_gatepass.gp_time > '16:25:00' THEN tbl_gatepass.gp_time ELSE '-' END) evening
-FROM tbl_gatepass INNER JOIN employee_detail ON tbl_gatepass.emp_id = employee_detail.emp_id WHERE tbl_gatepass.gp_date ='$newDate' AND employee_detail.job_category ='STAF'  GROUP BY tbl_gatepass.emp_id");
-       }
+                                                        MAX(CASE WHEN tbl_gatepass.gp_time < '12:00:00' AND tbl_gatepass.status LIKE '%I%' THEN tbl_gatepass.gp_time ELSE '-' END ) morning,
+                                                        MAX(CASE WHEN tbl_gatepass.status LIKE '%I%' AND tbl_gatepass.gp_time BETWEEN '12:55:00' AND '13:10:00'  THEN tbl_gatepass.gp_time ELSE '-' END) lunch,
+                                                        MAX(CASE WHEN tbl_gatepass.status LIKE '%I%' AND tbl_gatepass.gp_time BETWEEN '13:11:00' AND '16:40:00'  THEN tbl_gatepass.gp_time ELSE '-' END) lunch2,
+                                                        MAX(CASE WHEN tbl_gatepass.status LIKE '%I%' AND tbl_gatepass.gp_time > '16:25:00' THEN tbl_gatepass.gp_time ELSE '-' END) evening
+                                                        FROM tbl_gatepass INNER JOIN employee_detail ON tbl_gatepass.emp_id = employee_detail.emp_id WHERE tbl_gatepass.gp_date ='$newDate' AND employee_detail.job_category ='STAF'  GROUP BY tbl_gatepass.emp_id");
+                                                    }
                             foreach($data->result() as $row){ ?>
             <tr>
                 <td><?= $row->emp_id ?></td>
@@ -80,36 +79,35 @@ FROM tbl_gatepass INNER JOIN employee_detail ON tbl_gatepass.emp_id = employee_d
                     <?php 
                     $data  = $this->db->query("SELECT * from gate_pass WHERE date ='$newDate' AND emp_id ='$row->emp_id'"); 
                     foreach($data->result() as $row1) { ?>
-                    <div><a href="http://localhost/rcpl/index.php/users/gate_pass_approval/<?= $row1->gate_pass_id ?>"><?php  if($row1->be_back=='true' && $row1->purpose=='Factory'){?><i class="btn btn-success glyphicon glyphicon-retweet" title="Return Gatepass(Factory)"></i><?php }else if($row1->be_back=='true' && $row1->purpose=='Personal'){?><i class="btn btn-danger glyphicon glyphicon-retweet" title="Return Gatepass(Personal)"></i><?php }else if($row1->be_back=='false' && $row1->purpose=='Factory'){ ?><i class="btn btn-success glyphicon glyphicon-arrow-up" title="Outgoing Gatepass(Factory)"></i><?php }else{ ?><i class="btn btn-danger glyphicon glyphicon glyphicon-arrow-up" title="Outgoing Gatepass(Personal)"></i><?php } ?></a></div>
+                    <a href="<?php echo base_url();?>index.php/users/gate_pass_approval/<?= $row1->gate_pass_id ?>"><?php  if($row1->be_back=='true' && $row1->purpose=='Factory'){?><i class="btn btn-success glyphicon glyphicon-retweet" title="Return Gatepass(Factory)"></i><?php }else if($row1->be_back=='true' && $row1->purpose=='Personal'){?><i class="btn btn-danger glyphicon glyphicon-retweet" title="Return Gatepass(Personal)"></i><?php }else if($row1->be_back=='false' && $row1->purpose=='Factory'){ ?><i class="btn btn-success glyphicon glyphicon-arrow-up" title="Outgoing Gatepass(Factory)"></i><?php }else{ ?><i class="btn btn-danger glyphicon glyphicon glyphicon-arrow-up" title="Outgoing Gatepass(Personal)"></i><?php } ?></a>
                     <?php } ?>
                 </td>
             </tr>
                             <?php } ?>
              </tbody>
-</table>
+    </table>
     <a href="#">Todays Gatepass </a>
     </div>
-        </div>
+    </div>
     <div class="fixed-action-btn vertical" style="bottom: 45px; right: 24px;">
-                <a class="btn-floating btn-large red"  href="<?php echo base_url();?>index.php/users">
-                    <i id="pluse_ic" class="glyphicon glyphicon-plus"></i>
-                    <i class="glyphicon glyphicon-home"></i>
-                </a>
-                <ul>
-                    <li><a class="btn-floating green"  data-placement="bottom" title="Create New Gate Pass!"  href="<?php echo base_url();?>index.php/users/new_gate_pass"><i class="glyphicon glyphicon-pencil"></i></a></li>
-                     <li><a class="btn-floating grey"  data-placement="bottom" title="Go Back!"  href="javascript:window.history.go(-1);"><i class="glyphicon glyphicon-arrow-left"></i></a></li>    
-                </ul>
-                           
-        </div>
-            <script>
-                $('.fixed-action-btn').hover(function(){
-                $('#pluse_ic').toggle();
-                });
-                </script>
-<script>
-    $(document).ready( function () {
-    $('#datatable').DataTable();
-    });
-</script>
+        <a class="btn-floating btn-large red"  href="<?php echo base_url();?>index.php/users">
+            <i id="pluse_ic" class="glyphicon glyphicon-plus"></i>
+            <i class="glyphicon glyphicon-home"></i>
+        </a>
+        <ul>
+            <li><a class="btn-floating green"  data-placement="bottom" title="Create New Gate Pass!"  href="<?php echo base_url();?>index.php/users/new_gate_pass"><i class="glyphicon glyphicon-pencil"></i></a></li>
+            <li><a class="btn-floating grey"  data-placement="bottom" title="Go Back!"  href="javascript:window.history.go(-1);"><i class="glyphicon glyphicon-arrow-left"></i></a></li>    
+        </ul>
+    </div>
+    <script>
+        $('.fixed-action-btn').hover(function(){
+        $('#pluse_ic').toggle();
+        });
+    </script>
+    <script>
+        $(document).ready( function () {
+        $('#datatable').DataTable();
+        });
+    </script>
 </body>
 </html>
