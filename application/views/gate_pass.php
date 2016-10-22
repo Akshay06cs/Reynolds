@@ -74,13 +74,13 @@
                 <div>
                     <form class="form-style-4" action="<?= base_url('index.php/users/gate_pass_approval_succees') ?>" method="post">
                         <label for="field1">
-                            <span align="left">Please Allow Mr.</span><input type="text" id="emp_name" name="field1" required="true" value="<?= $approval_detail->name ?>" />
+                            <span align="left">Please Allow Mr./Miss/Mrs.</span><input type="text" id="emp_name" name="field1" required="true" value="<?= $approval_detail->name ?>" />
                         </label>
                         <label for="field1">
                             <span align="left">To leave the Factory.</span><br>
                         </label>
                         <label for="field1">
-                            <span align="left">Signature & Date</span><img id="image" src="<?php echo base_url();?>assets/images/rs.png" alt="logo" width='200' height='100' /><?php  if($approval_detail->status=='Request'){ echo date("d/m/y"); }else{ echo date("d-m-Y", strtotime($approval_detail->date)); } ?>
+                            <span align="left">Approved By</span><input type='text' name='approved_by' value='<?php  if(!empty($approval_detail->approved_by)){  echo $approval_detail->approved_by; }else{ echo $user->emp_f_name; $user->emp_m_name; $user->emp_l_name; } ?>' readonly><?php  if($approval_detail->status=='Request'){ echo date("d/m/y"); }else{ echo date("d-m-Y", strtotime($approval_detail->date)); } ?>
                         </label>
                         <label>
                             <span>&nbsp;</span><?php if($approval_detail->status=='Approved'){ ?><input type="submit" value="Approved" disabled="disabled"/><?php }else{ ?><input type="submit" value="Approve"/><?php } ?><input type="hidden" value="<?= $approval_detail->gate_pass_id ?>" name="id"/>
@@ -108,7 +108,7 @@
                         }else if($approval_detail->today_gate_count=='4'){
                             $count_out ='6';
                             $count_in='7';
-                        }else if($approval_detail->today_gate_count=='2'){
+                        }else if($approval_detail->today_gate_count=='5'){
                             $count_out ='8';
                             $count_in='9';
                         } ?>

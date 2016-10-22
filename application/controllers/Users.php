@@ -75,8 +75,6 @@ class Users extends CI_Controller
             $cssView  = $this->load->view('style1.css', NULL, TRUE);
             exportMeAsMPDF($fileName, $pdfView,$cssView,'P'); // then define the content and filename
             $this->update_prospects_stauts($id);
-          
-          
             //Main Menu Call From View
         }
         public function prospects_condtion($id)
@@ -117,7 +115,7 @@ class Users extends CI_Controller
             );
             $this->db->insert('user_activities',$data_activity);        
         }
-	public function index()
+        public function index()
         {
             //This Code is Use For online User Detection
             $today = date("Y-m-d");
@@ -1861,13 +1859,24 @@ class Users extends CI_Controller
     }
     public function gate_pass_approval($id)
     {
+          $user = $this->session->userdata('username');
+           $data['user'] = $this->M_login->userData($user);
         $data['level'] = $this->session->userdata('level');
         $data['approval_detail']=$this->db->query("SELECT * FROM gate_pass where gate_pass_id ='$id'")->row();
         $this->load->view('gate_pass',$data);
     }
-    public function gate_pass_approval_succees($id)
+    public function gate_pass_approval_succees()
     {
-        $id= $this->input->post('id');
+        $id = $this->input->post('id'); 
+        $inputall=$this->input->POST();
+            $data=array(  
+           
+            'status'=>'Approved',
+            'approved_by'=>$inputall['approved_by'],
+            );
+            $this->db->where('gate_pass_id',$id);
+            $this->db->update('gate_pass',$data);
+        
         $this->db->query("UPDATE gate_pass SET status = 'Approved' WHERE gate_pass_id='{$id}'"); 
         header('location:'.base_url()."index.php/users/gate_pass_approval/". $id);
         $user_da = $this->session->userdata('username')." Approved for Gate Pass";

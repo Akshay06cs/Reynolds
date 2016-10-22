@@ -29,7 +29,7 @@
             <td> <?= $row->obn_no ?></td>
             <td> <?= $row->customer_name ?></td>
             <td> <?= $row->po_dated ?></td>
-            <td> <?= $row->grand_total ?></td>
+            <td> <?= $row->total ?></td>
             <td><a href="<?= base_url('index.php/users/delete_obn/'.$row->obn_no); ?>" title="Delete Order Booking Note" class="btn btn-danger btn-sm glyphicon glyphicon-trash"></a></td>
             <td><a href="<?= base_url('index.php/users/edit_obn/'.$row->obn_no); ?>" title="View/Update Order Booking Note" class="btn btn-info btn-sm glyphicon glyphicon-list"></a></td>
     </tr>
