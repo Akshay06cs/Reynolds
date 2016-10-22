@@ -634,52 +634,21 @@
             </script>
         </body>
     <script type="text/javascript">
-        $('#packing_forwarding').click(function(){
-            $('#packing_forwarding_input').toggle();
-            $('#pf_lable').toggle();
-            $('#pf').toggle();
-            $('#pf_per').toggle();
-           });
-         $('#inspection').click(function(){
-            $('#inspection_input').toggle();
-            $('#ite_lable').toggle();
-            $('#ite').toggle();
-            $('#ite_per').toggle();
-
-          });
-         $('#other').click(function(){
-            $('#other_input').toggle();
-            $('#ot_lable').toggle();
-            $('#ot').toggle();
-            $('#ot_per').toggle();
-
-        });
-         $('#excise').click(function(){
-            $('#excise_input').toggle();
-            $('#ed_lable').toggle();
-            $('#ed').toggle();
-            $('#ed_per').toggle();
-        });
-         $('#cst').click(function(){
-            $('#cst_input').toggle();
-            $('#cs_lable').toggle();
-            $('#cs').toggle();
-            $('#cs_per').toggle();
-        });
-        $('#vat').click(function(){
-            $('#vat_input').toggle();
-            $('#vt_lable').toggle();
-            $('#vt').toggle();
-            $('#vt_per').toggle();
-        });
+      
         $('.price').keyup(function(){
         tax_cal();
         })
         function tax_cal(){
        var total_amt = $('#total_tax').val();
-        
-         if($('#packing_forwarding').prop("checked") == true){
-               var packing_percent = $('#packing_forwarding_input').val();
+        var packing_percent = $('#pf_per').val();
+      var inspection_percent = $('#ite_per').val();
+         var other_percent = $('#ot_per').val();
+           var excise_percent = $('#ed_per').val();
+            var cst_percent = $('#cs_per').val();
+              var vat_percent = $('#vt_per').val();
+       
+         if(!packing_percent==''){
+               
                var Total = [parseFloat(total_amt) * parseFloat(packing_percent)]/100;
                 $('#pf_lable').val('Packing Forwording');
                 var pf_fixed=parseFloat(Total).toFixed(2);
@@ -695,12 +664,12 @@
                         var total =format( "##,##.####", part1) + "" + part2
                         }
                         $('#pf').val(total);
-                        $('#pf_per').val(packing_percent+'%');
+                        
             }else{
                total = '0';
            }
-        if($('#inspection').prop("checked") == true){
-               var inspection_percent = $('#inspection_input').val();
+       if(!inspection_percent==''){
+               
                var Total1 = [parseFloat(total_amt) * parseFloat(inspection_percent)]/100;
                $('#ite_lable').val('Inspection and Testing');
                 var ite_fixed=parseFloat(Total1).toFixed(2);
@@ -716,13 +685,12 @@
                         var total1 =format( "##,##.####", part1) + "" + part2
                         }
                         $('#ite').val(total1);
-                        $('#ite_per').val(inspection_percent+'%');
-               
+                            
                }else{
                total1 = '0';
           }
-           if($('#other').prop("checked") == true){
-               var other_percent = $('#other_input').val();
+            if(!other_percent==''){
+            
                var Total2 = [parseFloat(total_amt) * parseFloat(other_percent)]/100;
                $('#ot_lable').val('Other');
                 var ite_fixed=parseFloat(Total2).toFixed(2);
@@ -738,13 +706,12 @@
                         var total2 =format( "##,##.####", part1) + "" + part2
                         }
                         $('#ot').val(total2);
-                        $('#ot_per').val(other_percent+'%');
-               }else{
+                        }else{
                total2 = '0';
           }
           var PFO=parseFloat(total)+parseFloat(total1)+parseFloat(total2)+parseFloat(total_amt);
-           if($('#excise').prop("checked") == true){
-               var excise_percent = $('#excise_input').val();
+           if(!excise_percent==''){
+             
                if(PFO!=0){
                     var Total3= [parseFloat(PFO) * parseFloat(excise_percent)]/100;
                }else{
@@ -765,14 +732,13 @@
                         var total3 =format( "##,##.####", part1) + "" + part2
                         }
                         $('#ed').val(total3);
-                        $('#ed_per').val(excise_percent+'%');
-                var excise= [parseFloat(PFO) * parseFloat(excise_percent)]/100 + parseFloat(PFO)  ;
+                        var excise= [parseFloat(PFO) * parseFloat(excise_percent)]/100 + parseFloat(PFO)  ;
                }else{
                excise = PFO;;
              
           } 
-            if($('#cst').prop("checked") == true){
-               var cst_percent = $('#cst_input').val();
+           if(!cst_percent==''){
+              
                if(excise!=0){
                     var Total4 = [parseFloat(excise) * parseFloat(cst_percent)]/100;
                }else{
@@ -793,14 +759,13 @@
                         var total4 =format( "##,##.####", part1) + "" + part2
                         }
                         $('#cs').val(total4);
-                        $('#cs_per').val(+cst_percent+'%');
-                  var total_cst= [parseFloat(excise) * parseFloat(cst_percent)]/100 + parseFloat(excise) ;
+                    var total_cst= [parseFloat(excise) * parseFloat(cst_percent)]/100 + parseFloat(excise) ;
                }else{
                total_cst = excise;
              
           }  
-          if($('#vat').prop("checked") == true){
-               var vat_percent = $('#vat_input').val();
+           if(!vat_percent==''){
+             
                if(excise!=0){
                      var Total5 = [parseFloat(excise) * parseFloat(vat_percent)]/100;
                }else{
@@ -821,7 +786,7 @@
                         var total5 =format( "##,##.####", part1) + "" + part2
                         }
                         $('#vt').val(total5);
-                        $('#vt_per').val(vat_percent+'%');
+                        
                         var total_vat = [parseFloat(excise) * parseFloat(vat_percent)]/100+parseFloat(excise);
                }else{
                total_vat = total_cst;
